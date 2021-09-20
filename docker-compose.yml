@@ -1,0 +1,15 @@
+version: "3.2"
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "5000:5000"
+    volumes:
+      - type: bind
+        source: ./web
+        target: /usr/src/app
+    links:
+      - db
+  db:
+    build: ./db
